@@ -8,7 +8,7 @@ Assume that we have four classes: Person, Teacher, Student, and
 PhDStudent. Teacher and Student are both subclasses of Person. PhDStudent is a
 subclass of Student.
 a. Which of the following assignments are legal, and why or why not?
-```
+```java
 Person p1 = new Student();  //legal
 Person p2 = new PhDStudent(); //legal
 PhDStudent phd1 = new Student(); //illegal cannot store general (super class) in sub class PhDStudent
@@ -19,7 +19,7 @@ Student s1 = new PhDStudent(); //legal
 You can not assign instances of a less specific type to one of a higher specificity.
 
 b. Suppose that we have the following legal declarations and assignments:
-```
+```java
 Person p1 = new Person();
 Person p2 = new Person();
 PhDStudent phd1 = new PhDStudent();
@@ -28,7 +28,7 @@ Student s1 = new Student();
 ```
 
 Based on those just mentioned, which of the following assignments are legal, and why or why not?
-```
+```java
 s1 = p1; //legal
 s1 = p2; //legal
 p1 = s1; //illegal
@@ -52,3 +52,30 @@ Use the documentation of the Java standard class libraries to find out about the
 Go back to the lab-classes project from Chapter 1. Add instructors to the pro- ject (every lab class can have many students and a single instructor). Use inheritance to avoid code duplication between students and instructors (both have a name, contact details, etc.).
 
 [Implementation](lab-classes)
+
+-----------------------
+
+Här är två algoritmer som beräknar xn, där x är ett flyttal och n ett ickenegativt heltal.
+```java
+double expIterativ(double x, int n) {
+    double res = 1.0;
+
+    for (int i = 0; i < n; i++)
+        res *= x;
+    return res;
+}
+
+double expRekursiv(double x, int n) {
+    if (n <= 4)
+        return expIterativ(x, n);
+
+    return expRekursiv(x, n/2) *
+           expRekursiv(x, (n + 1)/2);
+}
+```
+
+##1
+Argumentera för att algoritmerna är korrekta. Du kan till exempel använda en loopinvariant respektive ett induktionsbevis.
+
+##2
+Beräkna tidskomplexiteten som en funktion av n för båda algoritmerna. Ange resultatet med hjälp av ordo-notation.
