@@ -1,3 +1,8 @@
+inda13-2-1
+==========
+
+Exercise 1 for spring 2014 in Introduction to Computer Science.
+
 ##Exercise 8.12 
 Assume that we have four classes: Person, Teacher, Student, and
 PhDStudent. Teacher and Student are both subclasses of Person. PhDStudent is a
@@ -43,4 +48,3 @@ Use the documentation of the Java standard class libraries to find out about the
 
 ##Exercise 8.16 
 Go back to the lab-classes project from Chapter 1. Add instructors to the pro- ject (every lab class can have many students and a single instructor). Use inheritance to avoid code duplication between students and instructors (both have a name, contact details, etc.).
-
