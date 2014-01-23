@@ -55,6 +55,8 @@ Go back to the lab-classes project from Chapter 1. Add instructors to the pro- j
 
 -----------------------
 
+#Uppgifter från KTH
+
 Här är två algoritmer som beräknar xn, där x är ett flyttal och n ett ickenegativt heltal.
 ```java
 double expIterativ(double x, int n) {
