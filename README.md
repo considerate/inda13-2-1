@@ -37,6 +37,8 @@ s1 = phd1; //legal
 phd1 = s1; //illegal
 ```
 
+Yet again, you are allowed to assign a class with higher specificity (a subclass) to one of lower (a superclass). But the opposite is not legal in Java. 
+
 ##Exercise 8.14 
 What has to change in the NewsFeed class when another Post subclass
 (for example, a class EventPost) is added? Why?
@@ -48,3 +50,5 @@ Use the documentation of the Java standard class libraries to find out about the
 
 ##Exercise 8.16 
 Go back to the lab-classes project from Chapter 1. Add instructors to the pro- ject (every lab class can have many students and a single instructor). Use inheritance to avoid code duplication between students and instructors (both have a name, contact details, etc.).
+
+[Implementation](lab-classes)
