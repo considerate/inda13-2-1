@@ -46,7 +46,7 @@ What has to change in the NewsFeed class when another Post subclass
 Nothing, as long as the EventPost does not break in any of implementations of  the methods called from NewsFeed. This is because EventPost is a subclass of Post and as such it inherits all properties and behavior of the Post class.
 
 ##Exercise 8.15 
-Use the documentation of the Java standard class libraries to find out about the inheritance hierarchy of the collection classes. Draw a diagram showing the hierarchy. 
+Use the documentation of the Java standard class libraries to find out about the inheritance hierarchy of the collection classes. Draw a diagram showing the hierarchy.
 
 ##Exercise 8.16 
 Go back to the lab-classes project from Chapter 1. Add instructors to the pro- ject (every lab class can have many students and a single instructor). Use inheritance to avoid code duplication between students and instructors (both have a name, contact details, etc.).
@@ -62,14 +62,17 @@ Här är två algoritmer som beräknar xn, där x är ett flyttal och n ett icke
 double expIterativ(double x, int n) {
     double res = 1.0;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) {
         res *= x;
+        //Invariant: res = 1, x^1, x^2, x^3 ... x^i
+    }
     return res;
 }
 
 double expRekursiv(double x, int n) {
-    if (n <= 4)
+    if (n <= 4) {
         return expIterativ(x, n);
+    }
 
     return expRekursiv(x, n/2) *
            expRekursiv(x, (n + 1)/2);
@@ -79,5 +82,45 @@ double expRekursiv(double x, int n) {
 ##1
 Argumentera för att algoritmerna är korrekta. Du kan till exempel använda en loopinvariant respektive ett induktionsbevis.
 
+Iterativ: se kommentar ovan.
+Rekursiv: 
+Antag att basen `x = 2`.
+Vi inleder med basfallet 
+`P(0) = 1` vilket är sant eftersom `x^0 = 1`
+Sedan finner vi  
+
+`P(1) = 2` och  
+`P(2) = 4` vilket också är sant. (x^1 och x^2)
+
+Vi ser sedan att `P(i)` är sant för alla `i < k` och låter k vara ett allt större tal och gå mot oändligheten vilket bevisar korrekthet för algoritmen då `x = 2` för alla positiva heltal av `i`. Vi gör om samma test för andra värden på x och bevisar sålunda vår algoritm för alla heltal av n och alla positiva baser av x. 
+
 ##2
 Beräkna tidskomplexiteten som en funktion av n för båda algoritmerna. Ange resultatet med hjälp av ordo-notation.
+
+Mästarsatsen ger att för två konstanter `a ≥ 1` och `b > 1`, en funktion `f(n)` och en funktion `T(n)` över de positiva talen som är definierad av rekursionen 
+
+`T(n) = aT(n/b) + f(n)`.
+
+Om f(n) = Θ(n<sup>d</sup>), där `d ≥ 0`, så gäller
+
+T(n) = Θ(n<sup>d</sup>) om a < b<sup>d</sup>,
+
+T(n) = Θ(n<sup>d</sup>log n) om a = b<sup>d</sup>,
+
+T(n) = Θ(n<sup>log<sub>b</sub>a</sup>) om a > b<sup>d</sup>.
+
+Svar: 
+
+I fallet ovan är f(n) = 1 då arbetet endast sker max 4 gånger iterativt plus en multiplikationsoperation vilket i större perspektiv kan anses vara ett konstant arbete. 
+
+f(n) = 1 = Θ(n<sup>0</sup>) ⇒ d = 0  
+
+I den rekursiva funktionen ovan anropar den sig själv 2 gånger vilket medför att `a = 2` inom anropet divideras n med 2 och därför är `b = 2`.
+
+a = 2, b = 2 och d = 0 medför att  
+2<sup>0</sup> = 1 < 2,  
+a > b<sup>d</sup>  
+
+Allstå, T(n) = Θ(n<sup>log<sub>2</sub>2</sup>) = Θ(n).
+
+
