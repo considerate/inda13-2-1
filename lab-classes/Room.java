@@ -3,7 +3,8 @@ public class Room {
   private String location;
 
   public Room(String name, String location) {
-    
+    this.name = name;
+    this.location = location;
   }
 
   public String getInfo() {

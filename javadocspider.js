@@ -21,10 +21,18 @@ var indent = '';
 
 
 co(function *() {
+  var res = yield get('http://docs.oracle.com/javase/7/docs/api/java/util/AbstractCollection.html');
+
+  var links = getSubclasses(res[0].body);
+  //console.log(links);
+  fetchSubclassLinks(links, 'java.util.AbstractCollection<E>');
+})();
+
+/*co(function *() {
   var res = yield fs.readFile(__dirname+'/collectionInterface.html');
   var links = getImplementingClasses(res.toString());
   fetchSubclassLinks(links, 'implements java.util.Collection');
-})();
+})();*/
 
 function fetchSubclassLinks(links,parentName) {
 

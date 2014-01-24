@@ -48,6 +48,8 @@ Nothing, as long as the EventPost does not break in any of implementations of  t
 ##Exercise 8.15 
 Use the documentation of the Java standard class libraries to find out about the inheritance hierarchy of the collection classes. Draw a diagram showing the hierarchy.
 
+See [here](fromabstractcollection.csv) and [here](inheritance.csv)
+
 ##Exercise 8.16 
 Go back to the lab-classes project from Chapter 1. Add instructors to the pro- ject (every lab class can have many students and a single instructor). Use inheritance to avoid code duplication between students and instructors (both have a name, contact details, etc.).
 
